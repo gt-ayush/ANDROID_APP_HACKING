@@ -11,10 +11,10 @@
 
 **Tools to install**
 
--- `sudo apt install net-tools`
--- we can use `netstat -tulpen` to list all port that are currentely active in the system.
--- we can connect to a port using `telnet <ip address> <port>`
--- use the `auth <auth key>` command and copy and past the <auth key> in the location given in the terminel to gain access.
+-- `sudo apt install net-tools`\
+-- we can use `netstat -tulpen` to list all port that are currentely active in the system.\
+-- we can connect to a port using `telnet <ip address> <port>`\
+-- use the `auth <auth key>` command and copy and past the <auth key> in the location given in the terminel to gain access.\
 
 -- we can use various commands like 
 ```
