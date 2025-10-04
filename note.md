@@ -14,7 +14,7 @@
 -- `sudo apt install net-tools`\
 -- we can use `netstat -tulpen` to list all port that are currentely active in the system.\
 -- we can connect to a port using `telnet <ip address> <port>`\
--- use the `auth <auth key>` command and copy and past the <auth key> in the location given in the terminel to gain access.\
+-- use the `auth <auth key>` command and copy and past the <auth key> in the location given in the terminel to gain access.
 
 -- we can use various commands like 
 ```
@@ -59,4 +59,16 @@ Android console commands:
     proxy
     phonenumber
 
+```
+
+**4 oct 2025**
+
+After installing virtualBox i can't run the android it was giving an error and then i got to know i have to sign the key using mok management using `sudo /sbin/vboxconfig`and after creating a temp password it was again giving an error and then i used `sudo mokutil --import /var/lib/shim-signed/mok/MOK.der` then i reboot and and enroll mok and then continue and give the temp passworda and reboot then it was again giving an error related to kvm . i don't know what is kvm so after some time i desided to temp disable the kvm using 
+```
+ayush@ayush-83eq:~$ lsmod | grep kvm
+kvm_intel             487424  0
+kvm                  1425408  1 kvm_intel
+irqbypass              12288  1 kvm
+ayush@ayush-83eq:~$ sudo modprobe -r kvm_intel
+[sudo] password for ayush: 
 ```
