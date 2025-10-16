@@ -72,3 +72,15 @@ irqbypass              12288  1 kvm
 ayush@ayush-83eq:~$ sudo modprobe -r kvm_intel
 [sudo] password for ayush: 
 ```
+
+**we can also add path to the the linux using:**
+
+```shell
+ayush@ayush-83eq:/tmp/scrcpy$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+ayush@ayush-83eq:/tmp/scrcpy$ export PATH=/usr/local/bin:$PATH
+
+ayush@ayush-83eq:/tmp/scrcpy$ source ~/.bashrc
+```
+**Note:** the only didfference between then is that one we have to update every time and othere is auto updated to be used in other konsole.
