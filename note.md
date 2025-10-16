@@ -84,3 +84,11 @@ ayush@ayush-83eq:/tmp/scrcpy$ export PATH=/usr/local/bin:$PATH
 ayush@ayush-83eq:/tmp/scrcpy$ source ~/.bashrc
 ```
 **Note:** the only didfference between then is that one we have to update every time and othere is auto updated to be used in other konsole.
+
+**16 oct 2025**\
+`Added amy first hack` using `.sh` file and the `touch tab <l> <l>`.Where `l` is pointer location. \
+```
+I am knowing about shell script from class 10 and I got to know we can use while ,do while and for loop and if ,if else and more in shell scripts. 
+
+And because android is also based on linux all comands work fine so it is doing very well.
+```
