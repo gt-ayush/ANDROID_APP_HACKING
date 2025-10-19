@@ -85,10 +85,19 @@ ayush@ayush-83eq:/tmp/scrcpy$ source ~/.bashrc
 ```
 **Note:** the only didfference between then is that one we have to update every time and othere is auto updated to be used in other konsole.
 
-**16 oct 2025**\
+### **16 oct 2025**
 `Added amy first hack` using `.sh` file and the `touch tab <l> <l>`.Where `l` is pointer location. \
 ```
 I am knowing about shell script from class 10 and I got to know we can use while ,do while and for loop and if ,if else and more in shell scripts. 
 
 And because android is also based on linux all comands work fine so it is doing very well.
 ```
+
+### **19 oct 2025**
+
+**Bluetooth HCI snoop Log**
+--
+-- Step 1: Enable `Bluetooth HCI snoop Log` in Developer option.\
+-- Stet 2: Run command on your konsole `adb bugrebort <filename.zip>`. It will genetrate a bug report on `filename.zip` and store it on `pwd` location. It might take few min.. to complete.\
+-- Step 3: Extract and Go the FS Folder and Search for `HCI` or Go to `FS/data/misc/bluetooth/logs/`\
+-- Step 4: Open Terminal There and use `wireshark` on the log file. Command:`wireshark btsnoop_hci.log`
