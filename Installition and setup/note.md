@@ -63,18 +63,24 @@ Android console commands:
 
 **4 oct 2025**
 
-After installing virtualBox i can't run the android it was giving an error and then i got to know i have to sign the key using mok management using `sudo /sbin/vboxconfig`and after creating a temp password it was again giving an error and then i used `sudo mokutil --import /var/lib/shim-signed/mok/MOK.der` then i reboot and and enroll mok and then continue and give the temp passworda and reboot then it was again giving an error related to kvm . i don't know what is kvm so after some time i desided to temp disable the kvm using
+After installing VirtualBox, I couldn’t run Android due to an error. I learned I needed to sign the kernel module using MOK management with `sudo /sbin/vboxconfig`. Even after setting a temporary password, the error persisted. I then ran `sudo mokutil --import /var/lib/shim-signed/mok/MOK.der`, rebooted, enrolled the MOK, entered the temporary password, and rebooted again. After that, a new error appeared related to KVM. Since I wasn’t familiar with KVM, I decided to temporarily disable it to proceed.
 
 
+### Cheking if KVM is running
 ```shell
 ayush@ayush-83eq:~$ lsmod | grep kvm
 kvm_intel             487424  0
 kvm                  1425408  1 kvm_intel
 irqbypass              12288  1 kvm
-
+```
+### Disable the KVM
+```
 ayush@ayush-83eq:~$ sudo modprobe -r kvm_intel
 [sudo] password for ayush: 
+```
 
+### Enable the KVM 
+```
 ayush@ayush-83eq:~$ sudo modprobe kvm_intel
 [sudo] password for ayush: 
 
@@ -84,7 +90,7 @@ kvm                  1425408  1 kvm_intel
 irqbypass              12288  1 kvm
 ```
 
-**we can also add path to the the linux using:**
+**We can also add path to the the linux using:**
 
 ```shell
 ayush@ayush-83eq:/tmp/scrcpy$ echo $PATH
@@ -104,11 +110,35 @@ I am knowing about shell script from class 10 and I got to know we can use while
 And because android is also based on linux all comands work fine so it is doing very well.
 ```
 
-### **19 oct 2025**
-x
-**Bluetooth HCI snoop Log**
---
--- Step 1: Enable `Bluetooth HCI snoop Log` in Developer option.\
--- Stet 2: Run command on your konsole `adb bugrebort <filename.zip>`. It will genetrate a bug report on `filename.zip` and store it on `pwd` location. It might take few min.. to complete.\
--- Step 3: Extract and Go the FS Folder and Search for `HCI` or Go to `FS/data/misc/bluetooth/logs/`\
--- Step 4: Open Terminal There and use `wireshark` on the log file. Command:`wireshark btsnoop_hci.log`
+Here’s a cleaned-up and polished version of your note:
+
+---
+
+### **19 Oct 2025**
+
+**Bluetooth HCI Snoop Log**
+
+* **Step 1:** Enable **Bluetooth HCI snoop log** in **Developer options** on your device.
+* **Step 2:** On your terminal, run:
+
+  ```bash
+  adb bugreport <filename>.zip
+  ```
+
+  This will generate a bug report named `<filename>.zip` and store it in your current directory. It may take a few minutes.
+* **Step 3:** Extract the zip, navigate to the `FS` folder, and locate the HCI log:
+
+  * Either search for `HCI`
+  * Or go directly to:
+
+    ```
+    FS/data/misc/bluetooth/logs/
+    ```
+* **Step 4:** Open a terminal in that folder and launch Wireshark to analyze the log:
+
+  ```bash
+  wireshark btsnoop_hci.log
+  ```
+
+---
+
