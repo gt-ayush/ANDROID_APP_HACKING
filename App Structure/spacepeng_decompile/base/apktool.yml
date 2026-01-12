@@ -1,0 +1,18 @@
+version: 2.12.1
+apkFileName: base.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 8
+  targetSdkVersion: 8
+packageInfo:
+  forcedPackageId: 127
+versionInfo:
+  versionCode: 1581
+  versionName: 1.58-1
+doNotCompress:
+- arsc
+- jpg
+- ogg
+- png
