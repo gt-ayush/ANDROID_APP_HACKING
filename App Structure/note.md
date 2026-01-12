@@ -61,4 +61,48 @@ dexdump classes.dex
 `dexdump` **does not modify** files—it is strictly an **inspection tool**.
 
 
+**ADB & APK Tools – Short Notes**
+
+**1. `adb shell`**
+Used to open a **remote Linux shell** on a connected Android device or emulator. It allows direct interaction with the Android system.
+
+* Used for debugging, file access, and system commands
+* Example: `adb shell ls /system/app`
+
+**2. `pm list packages`**
+A **Package Manager (pm)** command used inside `adb shell` to list installed apps.
+
+* Lists all installed package names
+* Options:
+
+  * `pm list packages -s` → system apps
+  * `pm list packages -3` → user apps
+
+**3. `pm path <package_name>`**
+Displays the **APK file path** of a specific installed application.
+
+* Helps locate where the APK is stored
+* Example: `pm path com.android.settings`
+
+**4. `adb pull`**
+Used to **copy files from Android device to PC**.
+
+* Commonly used to extract APKs or logs
+* Example:
+
+  ```bash
+  adb pull /data/app/com.example.apk
+  ```
+
+**5. APKTool**
+A **reverse-engineering tool** for Android APKs.
+
+* Decodes resources (`XML`, `Manifest`) into readable form
+* Rebuilds APK after modification
+* Commonly used in **app modding and security analysis**
+
+**Typical Workflow Example:**
+`adb shell` → `pm list packages` → `pm path` → `adb pull` → analyze with **APKTool**
+
+
 
