@@ -148,3 +148,16 @@ I: Built apk into: base/dist/base.apk
 - **step 7** - You can find the apk in the `dist` folder in the `base` folder.
 
 **Note** - You can't install in right now because the application is not signed yet.
+
+**Short Note**
+
+* **`/data/system/packages.xml`**\
+  Stores **app UIDs** and the **permissions granted** to each installed application. It is maintained by the Package Manager and reflects the **current permission state** of apps.
+
+* **`/etc/permissions/platform.xml`**\
+  Defines **Android platform permissions**, their **protection levels** (normal, dangerous, signature, system) and maps them to **Linux groups**, determining what access each permission provides.
+
+**In short:**
+
+* `packages.xml` → *who (UID/app) has which permissions*
+* `platform.xml` → *what those permissions mean and how protected they are*
