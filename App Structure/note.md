@@ -161,3 +161,40 @@ I: Built apk into: base/dist/base.apk
 
 * `packages.xml` → *who (UID/app) has which permissions*
 * `platform.xml` → *what those permissions mean and how protected they are*
+
+
+
+---
+
+### **`am` and `am start-activity` (Android Activity Manager)**
+
+`am` (Activity Manager) is an Android Debug Bridge (ADB) shell command used to interact with Android system components such as activities, services, and broadcasts.
+
+The command **`am start-activity`** (or simply `am start`) is used to launch an activity from the command line without using the app’s user interface. It is mainly used for testing, debugging, and security analysis of Android applications.
+
+**Syntax:**
+
+```
+am start -n <package_name>/<activity_name>
+```
+
+**Example:**
+
+```
+am start -n com.example.app/.MainActivity
+```
+
+This command sends an explicit Intent to the specified activity and starts it if the activity is exported and exists in the application manifest.
+
+**Uses:**
+
+* Launches activities directly from terminal/ADB
+* Helps in debugging and penetration testing
+* Verifies whether an activity is accessible (exported)
+* Useful for automation and app behavior analysis
+
+**Common errors:**
+
+* *Bad component name*: incorrect package or activity name
+* *Permission Denial*: activity is not exported or requires permission
+
