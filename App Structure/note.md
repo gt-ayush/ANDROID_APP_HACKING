@@ -26,6 +26,7 @@ ayush@ayush-83eq:~/Desktop/ANDROID_APP_HACKING/App Structure/spacepeng$ file cla
 classes.dex: Dalvik dex file version 035
 ```
 
+---
 ### GHex (Short Note)
 
 **GHex is a hexadecimal editor used mainly on Linux systems.** It allows users to view, edit, and analyze files at the byte (hex) level, which is useful for low-level debugging, reverse engineering, and file inspection.
@@ -60,8 +61,9 @@ dexdump classes.dex
 **Note:**
 `dexdump` **does not modify** files—it is strictly an **inspection tool**.
 
-
-**ADB & APK Tools – Short Notes**
+---
+ 
+### **ADB & APK Tools – Short Notes**
 
 **1. `adb shell`**
 Used to open a **remote Linux shell** on a connected Android device or emulator. It allows direct interaction with the Android system.
@@ -289,3 +291,79 @@ In Android app security testing, **Intents are analyzed to find misconfiguration
 > In Android hacking, Intents are analyzed to find exposed components, inject malicious data, and test for unauthorized access and information leakage.
 
 This is studied in **ethical hacking and penetration testing** to improve app security, not to harm systems.
+
+
+
+
+
+### **Intent Sniffing**
+
+**Intent sniffing** is a vulnerability where a malicious app listens to or intercepts **implicit intents** sent by another app and reads the sensitive data inside them.
+
+**How it happens (conceptually):**
+
+* An app sends an implicit intent (not targeted to a specific app)
+* Another app with a matching intent filter can receive it
+* Sensitive data in **Extras** may be leaked
+
+**Risks:**
+
+* Leakage of usernames, tokens, or private data
+* Unauthorized access to internal app actions
+* Privacy breach
+
+**Prevention:**
+
+* Use **explicit intents** for sensitive operations
+* Avoid sending confidential data in implicit intents
+* Use permissions to protect broadcasts
+
+
+### **Intent Filter**
+
+An **intent filter** is declared in `AndroidManifest.xml` and defines what types of intents a component can receive.
+
+**It specifies:**
+
+* **Action** (what to do)
+* **Data** (URI / MIME type)
+* **Category** (how it is launched)
+
+**Purpose:**
+
+* Allows Android to match an incoming intent to the correct Activity, Service, or Receiver
+* Makes a component accessible to other apps if not properly restricted
+
+**Security issue:**
+
+* Misconfigured intent filters can expose internal components
+* Attackers may exploit them using crafted intents (intent injection)
+
+---
+
+### **Security Summary (One-liners)**
+
+* **Intent Sniffing:**
+
+  > Intercepting implicit intents to steal sensitive data.
+
+* **Intent Filter:**
+
+  > Rules that define which intents a component can accept; misconfiguration can expose the app to attacks.
+
+---
+
+### **Defense Best Practices**
+
+* Set `exported=false` for private components
+* Use explicit intents for internal communication
+* Validate all intent data (Extras)
+* Protect components with permissions
+
+---
+
+**Exam-ready line:**
+
+> Intent sniffing exploits implicit intents to leak data, while insecure intent filters expose app components to unauthorized access.
+
+This topic is studied in **ethical hacking and Android security testing** to help developers secure their applications.
